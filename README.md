@@ -1,7 +1,7 @@
 <p align="center">
-    <img alt="logo" src="./doc/imgs/小石榴.png" width="100" />
+    <img alt="logo" src="./doc/imgs/花匠家.png" width="100" />
 </p>
-<h1 align="center" style="margin: 20px 30px 0px 30px; font-weight: bold;">XiaoShiLiu</h1>
+<h1 align="center" style="margin: 20px 30px 0px 30px; font-weight: bold;">HuaJiangJia</h1>
 
 ---
 <p align="center">
@@ -188,11 +188,11 @@ NODE_ENV=development
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=123456
-DB_NAME=xiaoshiliu
+DB_NAME=huajiangjia
 DB_PORT=3306
 
 # JWT配置
-JWT_SECRET=xiaoshiliu_secret_key_2025
+JWT_SECRET=huajiangjia_secret_key_2025
 JWT_EXPIRES_IN=7d
 REFRESH_TOKEN_EXPIRES_IN=30d
 
@@ -247,7 +247,7 @@ SMTP_PASSWORD=your_email_password
 # 发件人邮箱
 EMAIL_FROM=your_email@example.com
 # 发件人名称
-EMAIL_FROM_NAME=小石榴校园图文社区
+EMAIL_FROM_NAME=花匠家图文社区
 ```
 
 ### 前端配置 (vue3-project/.env)
@@ -260,7 +260,7 @@ VITE_API_BASE_URL=http://localhost:3001/api
 VITE_USE_REAL_API=true
 
 # 应用标题
-VITE_APP_TITLE=小石榴图文社区
+VITE_APP_TITLE=花匠家图文社区
 ```
 
 > 💡 **配置说明**：
@@ -311,7 +311,7 @@ npm run preview
 
 <div align="center">
 
-Copyright © 2025 - **XiaoShiLiu**\
+Copyright © 2025 - **HuaJiangJia**\
 By ZTMYO\
 Made with ❤️ & ⌨️
 

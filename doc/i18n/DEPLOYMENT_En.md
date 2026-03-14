@@ -1,6 +1,6 @@
 # Deployment Guide
 
-This document provides a detailed introduction to the deployment process and configuration instructions for the XiaoShiLiu image and text community project.
+This document provides a detailed introduction to the deployment process and configuration instructions for the HuaJiangJia image and text community project.
 
 ## Deployment Methods
 
@@ -9,7 +9,7 @@ The project supports two deployment methods:
 1. **Docker One-Click Deployment** (recommended) - Simple and quick, suitable for production environments
 2. **Traditional Deployment** - Manual configuration, suitable for development environments
 
-> 💡 **BT-Panel Deployment**: If you are using BT-Panel (宝塔面板), you can refer to this detailed tutorial with screenshots: [Complete Tutorial for Deploying XiaoShiLiu with BT-Panel](https://www.sakuraidc.cc/forum-post/3116.html)
+> 💡 **BT-Panel Deployment**: If you are using BT-Panel (宝塔面板), you can refer to this detailed tutorial with screenshots: [Complete Tutorial for Deploying HuaJiangJia with BT-Panel](https://www.sakuraidc.cc/forum-post/3116.html)
 
 ---
 
@@ -39,7 +39,7 @@ The project supports two deployment methods:
 
 ```bash
 git clone https://github.com/ZTMYO/XiaoShiLiu.git
-cd XiaoShiLiu
+cd HuaJiangJia
 ```
 
 #### 2. Configure Environment Variables
@@ -54,13 +54,13 @@ Edit the `.env` file and modify the configuration as needed:
 ```env
 # Database configuration
 DB_HOST=mysql
-DB_USER=xiaoshiliu_user
+DB_USER=huajiangjia_user
 DB_PASSWORD=123456
-DB_NAME=xiaoshiliu
+DB_NAME=huajiangjia
 DB_PORT=3306
 
 # JWT configuration
-JWT_SECRET=xiaoshiliu_secret_key_2025_docker
+JWT_SECRET=huajiangjia_secret_key_2025_docker
 JWT_EXPIRES_IN=7d
 REFRESH_TOKEN_EXPIRES_IN=30d
 
@@ -110,7 +110,7 @@ SMTP_PASSWORD=your_email_password
 # Sender email
 EMAIL_FROM=your_email@example.com
 # Sender name
-EMAIL_FROM_NAME=XiaoShiLiu Campus Community
+EMAIL_FROM_NAME=HuaJiangJia Campus Community
 
 # Frontend build configuration
 VITE_API_BASE_URL=http://localhost:3001/api
@@ -204,7 +204,7 @@ PORT=3001
 NODE_ENV=development
 
 # JWT Configuration
-JWT_SECRET=xiaoshiliu_secret_key_2025
+JWT_SECRET=huajiangjia_secret_key_2025
 JWT_EXPIRES_IN=7d
 REFRESH_TOKEN_EXPIRES_IN=30d
 
@@ -212,7 +212,7 @@ REFRESH_TOKEN_EXPIRES_IN=30d
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=123456
-DB_NAME=xiaoshiliu
+DB_NAME=huajiangjia
 DB_PORT=3306
 
 # Upload Configuration
@@ -271,7 +271,7 @@ SMTP_PASSWORD=your_email_password
 # Sender Email
 EMAIL_FROM=your_email@example.com
 # Sender Name
-EMAIL_FROM_NAME=XiaoShiLiu Campus Community
+EMAIL_FROM_NAME=HuaJiangJia Campus Community
 ```
 
 #### Frontend Environment Variables (vue3-project/.env)
@@ -294,12 +294,12 @@ When deploying with Docker, environment variables are configured through `docker
 ```env
 # Database Configuration (Docker Environment)
 DB_HOST=mysql
-DB_USER=xiaoshiliu_user
+DB_USER=huajiangjia_user
 DB_PASSWORD=123456
-DB_NAME=xiaoshiliu
+DB_NAME=huajiangjia
 
 # JWT Configuration
-JWT_SECRET=xiaoshiliu_secret_key_2025_docker
+JWT_SECRET=huajiangjia_secret_key_2025_docker
 JWT_EXPIRES_IN=7d
 
 # Upload Configuration
@@ -329,10 +329,10 @@ docker-compose exec backend sh
 docker-compose exec mysql mysql -u root -p
 
 # Backup the database
-docker-compose exec mysql mysqldump -u root -p xiaoshiliu > backup.sql
+docker-compose exec mysql mysqldump -u root -p huajiangjia > backup.sql
 
 # Restore the database
-docker-compose exec -T mysql mysql -u root -p xiaoshiliu < backup.sql
+docker-compose exec -T mysql mysql -u root -p huajiangjia < backup.sql
 ```
 
 ### Data Persistence
@@ -466,7 +466,7 @@ The project supports email verification functionality, controlled by the `EMAIL_
    SMTP_USER=your_email@example.com
    SMTP_PASSWORD=your_email_password
    EMAIL_FROM=your_email@example.com
-   EMAIL_FROM_NAME=XiaoShiLiu Campus Community
+   EMAIL_FROM_NAME=HuaJiangJia Campus Community
    ```
 
 2. **Disable Email Feature** (`EMAIL_ENABLED=false`, default)
@@ -730,7 +730,7 @@ NODE_ENV=development
 PORT=3001
 
 # JWT configuration
-JWT_SECRET=xiaoshiliu_secret_key_2025
+JWT_SECRET=huajiangjia_secret_key_2025
 JWT_EXPIRES_IN=7d
 REFRESH_TOKEN_EXPIRES_IN=30d
 
@@ -738,7 +738,7 @@ REFRESH_TOKEN_EXPIRES_IN=30d
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=123456
-DB_NAME=xiaoshiliu
+DB_NAME=huajiangjia
 DB_PORT=3306
 
 # API configuration
@@ -762,7 +762,7 @@ The database-related scripts for the project are all placed in the `express-proj
   cd express-project
   node scripts/init-database.js
   ```
-- **Description**: Must be run for the first deployment, which will automatically create the `xiaoshiliu` database and 12 data tables
+- **Description**: Must be run for the first deployment, which will automatically create the `huajiangjia` database and 12 data tables
 
 #### 2. Test Data Generation Script
 - **File Location**: `scripts/generate-data.js`

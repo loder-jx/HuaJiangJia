@@ -1,15 +1,15 @@
-# 小石榴图文社区部署指南
+# 花匠家图文社区部署指南
 
 ## 项目简介
 
-小石榴图文社区是一个基于 Express + Vue3 的现代化图文社区平台，支持用户注册、发布图文内容、互动交流等功能。
+花匠家图文社区是一个基于 Express + Vue3 的现代化图文社区平台，支持用户注册、发布图文内容、互动交流等功能。
 
 ## 系统要求
 
 - **Docker 部署**：Docker 20.10+ 和 Docker Compose 2.0+
 - **传统部署**：Node.js 18+、MySQL 5.7+、npm 或 yarn
 
-> 💡 **宝塔面板部署**：如果您使用宝塔面板，可以参考这个详细的图文教程：[使用宝塔搭建小石榴图文社区完整教程](https://www.sakuraidc.cc/forum-post/3116.html)
+> 💡 **宝塔面板部署**：如果您使用宝塔面板，可以参考这个详细的图文教程：[使用宝塔搭建花匠家图文社区完整教程](https://www.sakuraidc.cc/forum-post/3116.html)
 
 ---
 
@@ -19,7 +19,7 @@
 
 ```bash
 git clone https://github.com/ZTMYO/XiaoShiLiu
-cd XiaoShiLiu
+cd HuaJiangJia
 ```
 
 ### 2. 配置环境变量
@@ -34,13 +34,13 @@ cp .env.docker .env
 ```env
 # 数据库配置
 DB_HOST=mysql
-DB_USER=xiaoshiliu_user
+DB_USER=huajiangjia_user
 DB_PASSWORD=123456
-DB_NAME=xiaoshiliu
+DB_NAME=huajiangjia
 DB_PORT=3306
 
 # JWT配置
-JWT_SECRET=xiaoshiliu_secret_key_2025_docker
+JWT_SECRET=huajiangjia_secret_key_2025_docker
 JWT_EXPIRES_IN=7d
 REFRESH_TOKEN_EXPIRES_IN=30d
 
@@ -90,7 +90,7 @@ SMTP_PASSWORD=your_email_password
 # 发件人邮箱
 EMAIL_FROM=your_email@example.com
 # 发件人名称
-EMAIL_FROM_NAME=小石榴校园图文社区
+EMAIL_FROM_NAME=花匠家图文社区
 
 # 前端构建配置
 VITE_API_BASE_URL=http://localhost:3001/api
@@ -165,7 +165,7 @@ docker-compose up -d --build
 
 ```bash
 git clone <项目地址>
-cd XiaoShiLiu
+cd HuaJiangJia
 ```
 
 ### 3. 数据库配置
@@ -191,7 +191,7 @@ PORT=3001
 NODE_ENV=development
 
 # JWT配置
-JWT_SECRET=xiaoshiliu_secret_key_2025_production
+JWT_SECRET=huajiangjia_secret_key_2025_production
 JWT_EXPIRES_IN=7d
 REFRESH_TOKEN_EXPIRES_IN=30d
 
@@ -199,7 +199,7 @@ REFRESH_TOKEN_EXPIRES_IN=30d
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=123456
-DB_NAME=xiaoshiliu
+DB_NAME=huajiangjia
 DB_PORT=3306
 
 # API配置
@@ -249,7 +249,7 @@ SMTP_PASSWORD=your_email_password
 # 发件人邮箱
 EMAIL_FROM=your_email@example.com
 # 发件人名称
-EMAIL_FROM_NAME=小石榴校园图文社区
+EMAIL_FROM_NAME=花匠家图文社区
 ```
 
 安装依赖：
@@ -292,7 +292,7 @@ VITE_API_BASE_URL=http://localhost:3001/api
 VITE_USE_REAL_API=true
 
 # 应用标题
-VITE_APP_TITLE=小石榴图文社区
+VITE_APP_TITLE=花匠家图文社区
 ```
 
 安装依赖：
@@ -320,7 +320,7 @@ npm run preview
 ## 📁 项目结构
 
 ```
-XiaoShiLiu/
+HuaJiangJia/
 ├── express-project/          # 后端项目
 │   ├── app.js               # 应用入口
 │   ├── package.json         # 后端依赖
@@ -391,7 +391,7 @@ XiaoShiLiu/
    SMTP_USER=your_email@example.com
    SMTP_PASSWORD=your_email_password
    EMAIL_FROM=your_email@example.com
-   EMAIL_FROM_NAME=小石榴校园图文社区
+   EMAIL_FROM_NAME=花匠家图文社区
    ```
 
 2. **禁用邮件功能** (`EMAIL_ENABLED=false`，默认)

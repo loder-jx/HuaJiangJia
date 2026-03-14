@@ -1,10 +1,10 @@
-# Xiaoshiliu Image and Text Community API Documentation
+# Huajiangjia Image and Text Community API Documentation
 
 ## Project Information
-- **Project Name**: Xiaoshiliu Image and Text Community
+- **Project Name**: Huajiangjia Image and Text Community
 - **Version**: v1.3.2
 - **Base URL**: `http://localhost:3001`
-- **Database**: xiaoshiliu (MySQL)
+- **Database**: huajiangjia (MySQL)
 - **Update Time**: 2026-02-27
 
 ## General Instructions
@@ -77,7 +77,7 @@ General parameters for interfaces that support pagination:
     "user": {
       "id": 1,
       "user_id": "user_001",
-      "nickname": "Xiaoshiliu",
+      "nickname": "Huajiangjia",
       "avatar": "https://example.com/avatar.jpg",
       "bio": "This is a personal introduction",
       "location": "Beijing",
@@ -98,7 +98,7 @@ General parameters for interfaces that support pagination:
 **Request Parameters**:
 | Parameter | Type | Required | Description |
 |-----------|------|----------|------------|
-| user_id | string | Yes | Xiaoshiliu ID |
+| user_id | string | Yes | Huajiangjia ID |
 | password | string | Yes | Password |
 
 **Response Example**:
@@ -109,8 +109,8 @@ General parameters for interfaces that support pagination:
   "data": {
     "user": {
       "id": 1,
-      "user_id": "xiaoshiliu123",
-      "nickname": "Xiaoshiliu User",
+      "user_id": "huajiangjia123",
+      "nickname": "Huajiangjia User",
       "avatar": "http://example.com/avatar.jpg",
       "bio": "This is my personal introduction",
       "location": "Beijing",
@@ -281,7 +281,7 @@ General parameters for interfaces that support pagination:
   "code": 200,
   "message": "Verification code sent successfully",
   "data": {
-    "user_id": "xiaoshiliu"
+    "user_id": "huajiangjia"
   }
 }
 ```
@@ -550,7 +550,7 @@ General parameters for interfaces that support pagination:
   "message": "成功",
   "data": {
     "user_id": "user_001",
-    "nickname": "小石榴",
+    "nickname": "花匠家",
     "total_posts": 10,
     "total_likes": 50,
     "total_comments": 30,
@@ -2519,7 +2519,7 @@ Administrator interfaces use JWT authentication:
 | page | int | No | Page number, default 1 |
 | limit | int | No | Number of items per page, default 20 |
 | keyword | string | No | Search keyword (title or content) |
-| user_display_id | string | No | Filter by author Xiaoshiliu number |
+| user_display_id | string | No | Filter by author Huajiangjia number |
 | category_id | int/string | No | Category ID filter, pass "null" to filter uncategorized records |
 
 **Response Data**:
@@ -2531,7 +2531,7 @@ Administrator interfaces use JWT authentication:
 | type | int | Record type: 1-Image/Text, 2-Video |
 | category | string | Category name |
 | status | int | Record status: 2-Pending Review |
-| user_display_id | string | Author Xiaoshiliu number |
+| user_display_id | string | Author Huajiangjia number |
 | nickname | string | Author nickname |
 | tags | array | Tag list |
 | images | array | Image URL list |

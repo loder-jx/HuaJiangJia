@@ -1,7 +1,7 @@
 <p align="center">
-    <img alt="logo" src="../imgs/小石榴.png" width="100" />
+    <img alt="logo" src="../imgs/花匠家.png" width="100" />
 </p>
-<h1 align="center" style="margin: 20px 30px 0px 30px; font-weight: bold;">XiaoShiLiu</h1>
+<h1 align="center" style="margin: 20px 30px 0px 30px; font-weight: bold;">HuaJiangJia</h1>
 
 ---
 <p align="center">
@@ -188,11 +188,11 @@ NODE_ENV=development
 DB_HOST=localhost
 DB_USER=root
 DB_PASSWORD=123456
-DB_NAME=xiaoshiliu
+DB_NAME=huajiangjia
 DB_PORT=3306
 
 # JWT configuration
-JWT_SECRET=xiaoshiliu_secret_key_2025
+JWT_SECRET=huajiangjia_secret_key_2025
 JWT_EXPIRES_IN=7d
 REFRESH_TOKEN_EXPIRES_IN=30d
 
@@ -243,7 +243,7 @@ SMTP_PASSWORD=your_email_password
 # Sender email
 EMAIL_FROM=your_email@example.com
 # Sender name
-EMAIL_FROM_NAME=XiaoShiLiu Campus Community
+EMAIL_FROM_NAME=HuaJiangJia Campus Community
 ```
 
 ### Frontend Configuration (vue3-project/.env)
@@ -254,7 +254,7 @@ VITE_API_BASE_URL=http://localhost:3001/api
 
 # Application configuration
 VITE_USE_REAL_API=true
-VITE_APP_TITLE=XiaoShiLiu Image-Text Community
+VITE_APP_TITLE=HuaJiangJia Image-Text Community
 ```
 
 > 💡 **Configuration Notes**:
@@ -305,7 +305,7 @@ npm run preview
 
 <div align="center">
 
-Copyright © 2025 - **XiaoShiLiu**\
+Copyright © 2025 - **HuaJiangJia**\
 By ZTMYO\
 Made with ❤️ & ⌨️
 
