@@ -85,16 +85,61 @@ const columns = [
   { key: 'user_display_id', label: '用户花匠家号', type: 'user-link', sortable: false },
   { key: 'nickname', label: '用户昵称', sortable: false },
   {
-    key: 'type',
-    label: '认证类型',
-    type: 'status',
+    key: 'content',
+    label: '内容',
+    type: 'content',
     sortable: false,
-    statusMap: {
-      1: { text: '官方认证', class: 'type-official' },
-      2: { text: '个人认证', class: 'type-personal' }
+    getDetailContent: (item) => {
+      const typeText = item?.type === 1 ? '官方认证' : item?.type === 2 ? '个人认证' : (item?.type ?? '-')
+      const typeIconName = item?.type === 1 ? 'overified' : item?.type === 2 ? 'pverified' : ''
+      const typeIconHtml = typeIconName
+        ? `
+          <span style="display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:var(--primary-color);color:#fff;padding:2px;margin-right:6px;vertical-align:-2px;">
+            <svg aria-hidden="true" style="width:100%;height:100%;">
+              <use xlink:href="#icon-${typeIconName}" fill="currentColor" />
+            </svg>
+          </span>
+        `.trim()
+        : ''
+      const rows = []
+
+      const addRow = (label, value, options = {}) => {
+        const always = !!options.always
+        if (always) {
+          rows.push([label, value ?? '-'])
+          return
+        }
+        if (value === undefined || value === null) return
+        if (typeof value === 'string' && value.trim() === '') return
+        rows.push([label, value])
+      }
+
+      addRow('认证类型', `${typeIconHtml}${typeText}`, { always: true })
+
+      // 严格对齐 auth-content(VerifiedModal) 的 label
+      if (item?.type === 2) {
+        // 个人认证
+        addRow('真实姓名', item?.real_name)
+        addRow('身份证号', item?.id_card)
+        addRow('职业/身份', item?.title)
+        addRow('认证理由', item?.description)
+      } else if (item?.type === 1) {
+        // 官方认证
+        addRow('机构/企业名称', item?.real_name)
+        addRow('统一社会信用代码', item?.id_card)
+        addRow('联系人姓名', item?.contact_name)
+        addRow('联系电话', item?.contact_phone)
+        addRow('认证理由', item?.description)
+      }
+      return `
+        <table>
+          <tbody>
+            ${rows.map(([k, v]) => `<tr><td>${k}</td><td>${String(v)}</td></tr>`).join('')}
+          </tbody>
+        </table>
+      `
     }
   },
-  { key: 'content', label: '认证内容', type: 'content', sortable: false },
   {
     key: 'status',
     label: '审核状态',
@@ -106,13 +151,12 @@ const columns = [
       2: { text: '已拒绝', class: 'status-rejected' }
     }
   },
-  { key: 'created_at', label: '申请时间', type: 'date', sortable: true },
-  { key: 'audit_time', label: '审核时间', type: 'date', sortable: true }
+  { key: 'created_at', label: '申请时间', type: 'date', sortable: true }
 ]
 
 // 表单字段定义
 const formFields = computed(() => [
-  { key: 'target_id', label: '用户ID', type: 'number', required: true, placeholder: '请输入用户ID' },
+  { key: 'user_id', label: '用户ID', type: 'number', required: true, placeholder: '请输入用户ID' },
   {
     key: 'type',
     label: '认证类型',
@@ -123,7 +167,12 @@ const formFields = computed(() => [
       { value: 2, label: '个人认证' }
     ]
   },
-  { key: 'content', label: '认证内容', type: 'textarea', required: true, placeholder: '请输入认证相关内容' },
+  { key: 'real_name', label: '真实姓名/机构名称', type: 'text', required: true, placeholder: '请输入真实姓名或机构名称' },
+  { key: 'id_card', label: '身份证号/信用代码', type: 'text', required: true, placeholder: '请输入身份证号或统一信用代码' },
+  { key: 'contact_name', label: '联系人姓名', type: 'text', required: false, placeholder: '请输入联系人姓名' },
+  { key: 'contact_phone', label: '联系电话', type: 'text', required: false, placeholder: '请输入联系电话' },
+  { key: 'title', label: '认证称号', type: 'text', required: false, placeholder: '请输入认证称号' },
+  { key: 'description', label: '认证理由', type: 'textarea', required: false, placeholder: '请输入认证理由', rows: 3 },
   {
     key: 'status',
     label: '审核状态',
