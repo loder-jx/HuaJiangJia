@@ -740,7 +740,7 @@ router.put('/posts-audit/:id/approve', adminAuth, async (req, res) => {
 
         for (const mentionedUser of mentionedUsers) {
           try {
-            // 根据小石榴号查找用户的自增ID
+            // 根据花匠家号查找用户的自增ID
             const [userRows] = await pool.execute('SELECT id FROM users WHERE user_id = ?', [mentionedUser.userId])
 
             if (userRows.length > 0) {
